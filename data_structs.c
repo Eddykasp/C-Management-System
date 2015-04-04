@@ -24,3 +24,8 @@ void print_customer(CUSTOMER * node)
     printf("ID: %d\n", node->id);
     printf("Name: %s\n", node->name);
 }
+
+void delete_next_node(CUSTOMER * prev_node)
+{
+    prev_node->next = prev_node->next->next;
+}

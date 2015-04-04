@@ -18,5 +18,6 @@ typedef struct cust{
 CUSTOMER * init_customer(int i, char n[]);
 CUSTOMER * add_customer(CUSTOMER * node, int i, char n[]);
 void print_customer(CUSTOMER * node);
+void delete_next_node(CUSTOMER * node);
 
 #endif // DATA_STRUCTS_H_INCLUDED

@@ -29,3 +29,17 @@ void delete_next_node(CUSTOMER * prev_node)
 {
     prev_node->next = prev_node->next->next;
 }
+
+CUSTOMER * find_smallest_id(CUSTOMER * root)
+{
+    CUSTOMER * node = root, * low_node;
+    do
+    {
+        if(low_node->id > node->id)
+        {
+            low_node = node;
+        }
+        node = node->next;
+    }while(node!=root);
+    return low_node;
+}

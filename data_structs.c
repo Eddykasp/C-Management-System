@@ -43,3 +43,21 @@ CUSTOMER * find_smallest_id(CUSTOMER * root)
     }while(node!=root);
     return low_node;
 }
+
+int get_length(CUSTOMER * root)
+{
+    CUSTOMER * node = root;
+    int length = 0;
+    do
+    {
+        node = node->next;
+        length++;
+    }while(node!=root);
+    return length;
+}
+
+void sort_by_id(CUSTOMER * node)
+{
+    CUSTOMER * root = find_smallest_id(node);
+
+}

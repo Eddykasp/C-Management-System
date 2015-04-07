@@ -21,5 +21,6 @@ void print_customer(CUSTOMER * node);
 void delete_next_node(CUSTOMER * node);
 void sort_by_id(CUSTOMER * node);
 CUSTOMER * find_smallest_id(CUSTOMER * root);
+int get_length(CUSTOMER * root);
 
 #endif // DATA_STRUCTS_H_INCLUDED

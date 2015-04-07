@@ -11,6 +11,7 @@ typedef struct cust{
     int id;
     char name[STRING_LENGTH];
     struct cust *next;
+    struct cust *prev;
 }CUSTOMER;
 
 //function protoypes
@@ -18,5 +19,10 @@ typedef struct cust{
 CUSTOMER * init_customer(int i, char n[]);
 CUSTOMER * add_customer(CUSTOMER * node, int i, char n[]);
 void print_customer(CUSTOMER * node);
+void delete_node(CUSTOMER * node);
+CUSTOMER * find_smallest_id(CUSTOMER * root);
+int get_length(CUSTOMER * root);
+CUSTOMER * move_steps(CUSTOMER * node, int n);
+void insert_node(CUSTOMER * left_node, CUSTOMER * new_node);
 
 #endif // DATA_STRUCTS_H_INCLUDED

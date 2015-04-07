@@ -12,16 +12,9 @@ CUSTOMER * init_customer(int i, char n[])
 
 CUSTOMER * add_customer(CUSTOMER * left_node, int id, char n[])
 {
-    CUSTOMER * right_node = left_node->next, * new_node;
+    CUSTOMER * new_node = init_customer(id, n);
     //init new node and connect left node to it
-    left_node->next = init_customer(id, n);
-    new_node = left_node->next;
-    //connect new node to left node
-    new_node->prev = left_node;
-    //connect new node to right node
-    new_node->next = right_node;
-    //connect right node to new node
-    right_node->prev = new_node;
+    insert_node(left_node, new_node);
     return new_node;
 }
 
@@ -74,7 +67,7 @@ CUSTOMER * move_steps(CUSTOMER * node, int n)
             step = step->next;
         }
     }
-    else
+    else if(n < 0)
     {
         n*=-1;
         for(i=0; i<n; i++)
@@ -82,7 +75,18 @@ CUSTOMER * move_steps(CUSTOMER * node, int n)
             step = step->prev;
         }
     }
+    else{}
     return step;
+}
+
+void insert_node(CUSTOMER * left_node, CUSTOMER * new_node)
+{
+    CUSTOMER * right_node = left_node->next;
+    left_node->next = new_node;
+    new_node->prev = left_node;
+
+    right_node->prev = new_node;
+    new_node->next = right_node;
 }
 
 void sort_by_id(CUSTOMER * node)

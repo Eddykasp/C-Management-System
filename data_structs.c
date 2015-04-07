@@ -56,8 +56,26 @@ int get_length(CUSTOMER * root)
     return length;
 }
 
+CUSTOMER * move_steps(CUSTOMER * node, int n)
+{
+    int i;
+    CUSTOMER * next = node;
+    for(i=0; i<n; i++)
+    {
+        next = next->next;
+    }
+    return next;
+}
+
 void sort_by_id(CUSTOMER * node)
 {
     CUSTOMER * root = find_smallest_id(node);
-
+    int l = get_length(root), i, j;
+    for(i=0; i<l-1; i++)
+    {
+        for(j=0; j<l-i-1; j++)
+        {
+            //if()
+        }
+    }
 }

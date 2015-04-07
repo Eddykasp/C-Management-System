@@ -11,6 +11,7 @@ typedef struct cust{
     int id;
     char name[STRING_LENGTH];
     struct cust *next;
+    struct cust *prev;
 }CUSTOMER;
 
 //function protoypes

@@ -6,16 +6,23 @@ CUSTOMER * init_customer(int i, char n[])
     root->id = i;
     strcpy(root->name, n);
     root->next = root;
-    //printf("Initialized new Customer list at address %d: id: %d, %s\n", root, root->id, root->name);
+    root->prev = root;
     return root;
 }
 
-CUSTOMER * add_customer(CUSTOMER * node, int id, char n[])
+CUSTOMER * add_customer(CUSTOMER * left_node, int id, char n[])
 {
-    CUSTOMER * root = node->next;
-    node->next = init_customer(id, n);
-    node->next->next = root;
-    return node->next;
+    CUSTOMER * right_node = left_node->next, * new_node;
+    //init new node and connect left node to it
+    left_node->next = init_customer(id, n);
+    new_node = left_node->next;
+    //connect new node to left node
+    new_node->prev = left_node;
+    //connect new node to right node
+    new_node->next = right_node;
+    //connect right node to new node
+    right_node->prev = new_node;
+    return new_node;
 }
 
 void print_customer(CUSTOMER * node)
@@ -69,13 +76,16 @@ CUSTOMER * move_steps(CUSTOMER * node, int n)
 
 void sort_by_id(CUSTOMER * node)
 {
-    CUSTOMER * root = find_smallest_id(node);
+    CUSTOMER * root = find_smallest_id(node), temp;
     int l = get_length(root), i, j;
     for(i=0; i<l-1; i++)
     {
         for(j=0; j<l-i-1; j++)
         {
-            //if()
+            if(move_steps(root,j)->id > move_steps(root, j+1))
+            {
+
+            }
         }
     }
 }

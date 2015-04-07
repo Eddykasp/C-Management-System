@@ -25,9 +25,10 @@ void print_customer(CUSTOMER * node)
     printf("Name: %s\n", node->name);
 }
 
-void delete_next_node(CUSTOMER * prev_node)
+void delete_node(CUSTOMER * node)
 {
-    prev_node->next = prev_node->next->next;
+    node->prev->next = node->next;
+    node->next->prev = node->prev;
 }
 
 CUSTOMER * find_smallest_id(CUSTOMER * root)

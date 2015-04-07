@@ -19,7 +19,7 @@ typedef struct cust{
 CUSTOMER * init_customer(int i, char n[]);
 CUSTOMER * add_customer(CUSTOMER * node, int i, char n[]);
 void print_customer(CUSTOMER * node);
-void delete_next_node(CUSTOMER * node);
+void delete_node(CUSTOMER * node);
 void sort_by_id(CUSTOMER * node);
 CUSTOMER * find_smallest_id(CUSTOMER * root);
 int get_length(CUSTOMER * root);

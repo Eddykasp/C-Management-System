@@ -66,12 +66,23 @@ int get_length(CUSTOMER * root)
 CUSTOMER * move_steps(CUSTOMER * node, int n)
 {
     int i;
-    CUSTOMER * next = node;
-    for(i=0; i<n; i++)
+    CUSTOMER * step = node;
+    if(n > 0)
     {
-        next = next->next;
+        for(i=0; i<n; i++)
+        {
+            step = step->next;
+        }
     }
-    return next;
+    else
+    {
+        n*=-1;
+        for(i=0; i<n; i++)
+        {
+            step = step->prev;
+        }
+    }
+    return step;
 }
 
 void sort_by_id(CUSTOMER * node)

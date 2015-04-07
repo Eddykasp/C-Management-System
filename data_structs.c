@@ -89,19 +89,3 @@ void insert_node(CUSTOMER * left_node, CUSTOMER * new_node)
     right_node->prev = new_node;
     new_node->next = right_node;
 }
-
-void sort_by_id(CUSTOMER * node)
-{
-    CUSTOMER * root = find_smallest_id(node), temp;
-    int l = get_length(root), i, j;
-    for(i=0; i<l-1; i++)
-    {
-        for(j=0; j<l-i-1; j++)
-        {
-            if(move_steps(root,j)->id > move_steps(root, j+1))
-            {
-
-            }
-        }
-    }
-}
